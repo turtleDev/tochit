@@ -1,0 +1,341 @@
+Development Log for Project-Tochit'
+
+[10-Oct-2013; ~3pm]
+
+* The Project is named Tochit' , Which is Russian for `Sharpen`
+* Preliminary idea's about the project are laid down.
+* Project will be divided into 2 different parts:
+  1) A program(or a function) that will parse a Database text file and initiate 
+    a list structure of objects
+  2) A second GUI program(or a function) will then use this initialised data 
+     structure to render a UI for the end user
+* Coding for the parser will begin immediately , while the GUI will be developed
+  later on
+
+[13-Oct-2013; 4:30 pm]
+
+* Parser is coded. It works immaculately.
+* Parser has no form of error checking against improperly written target file,
+  the user(or whom so ever will be writing the Database text file)will have to 
+  stick strictly to the format as given in format.txt file in docs folder
+* Another small utility will be written that will check target database file for
+  errors to help user(s) correct their respective database files.
+
+[14-Oct-2013; 6:10 pm]
+
+* db-checker is coded. Works fine for simple errors, but might need a bit of an
+  improvement.
+* pygtk(Python interface for GTK+) is selected as API for development for UI.
+* py2exe is given a look for making the executable. cx_freeze maybe given a
+  look as well.
+* There might be problems with DLL's that will be distributed with the software
+  ( in specific the C runtime library), since some of these libraries have
+  a copy right over them and permission to distribute them will be needed to be
+  secured. If not, then the other alternative will be to package visual Studio
+  runtime installation( vcredist.exe ).
+
+[21-Oct-2013; ~1pm]
+
+* Minor spelling fixes. 
+* Added Author's name and some comments
+* Also added answer index checking in checkdb module
+ 
+[21-Oct-2013; 9:40pm]
+
+* Whole project structure is revamped. The old project
+  structure was dropped because it was arbitrary. This one
+  conforms more to open source-style applications
+* nosetools is given a look and tried out. It'll be used for
+  unit testing from now on. Though there won't be any unit tests
+  for parser or checkdb for now, but might be added if the need arises
+  
+  
+[30-Oct-2013; ~7:30pm]
+
+* Initial UI is Coded. Just the welcome screen for now with a skeleton
+  help-about dialog. Glade is used for quick UI design and management.  
+* Now the welcome screen will host an image that will either be a motivational
+  image or a quote. This idea might be dropped in the future though
+* Minor changes were made to comments since they weren't changed when the 
+  project structure was revamped and they were kind of misleading or incomplete
+* In reference to the initial idea laid down on 10-Oct-2013; ~3pm, the original
+  idea was to break the software in 2 parts, but after revamping the project
+  structure, there arises a need to write a 3rd program that will act as the 
+  central program that will setup everything ,  link parser and UI and for 
+  all intent and purposes, be the "main" program.
+* tests directory has been deleted, pending till a way is found to effectively
+  and efficiently utilize them
+  
+  
+[2-Nov-2013; 4:30pm]
+* Project directory structure was changed again. Glade interface files cannot be
+  used like python packages and were dependent on the importing module to know 
+  about where the interface file is, but doing so meant a lot of "magic" code 
+  and defeated the purpose of having a separate module since all the code in that
+  particular module would not in any way be "reusable". So the ui module was re-
+  named "tochit.py" and moved to root directory and the "Tochit" Directory was 
+  renamed as "lib" directory since it'll now have other modules and interface 
+  files
+  
+* The project structure is now more like the original "two module" design. One 
+  main program (ui module)and the parser module. several new functionalities 
+  including the option to choose between different db-files at the start of the
+  test and having the option to choose between "One-by-One question" or "test"
+  are also planned to be coded in.
+  
+[4-Nov-2013; 10pm]
+
+* From now onwards, the development will follow Rapid Application Development
+  (RAD) focus, Which basically means that the program will be developed rapidly
+  by prototyping functionality. It's a permutation of Top-Down approach but with
+  minimum planning
+  
+* To protect against the inclusion of other text files erroneously(though less
+  likely), the readfile() in parse module was updated. The new readfile() takes 
+  2 arguments now. The first argument is the file name and the second argument 
+  is the 'identifier'. which is basically a string that needs to be at the 
+  begining of the file to make it a valid db-text file. For now, such identifier
+  is '##db##'
+  
+* 'format.txt' was updated to reflect the change in the point above
+
+[5-Nov-2013; 9:40pm]
+
+* The database selection window is coded. 
+* Minor changes in attributes, in specific, some widgets were changed from 
+  object attribute to function variables. Mostly because handlers for them could
+  be setup from within the constructor.
+* A method is planned which will manage a test. It will basically be of syntax
+  'UI.method_name()' and would take care of everything regarding a test , from 
+  setting up variables, checking for errors,showing and hiding different widgets
+  depending on which part of the test is going on and then terminate after the
+  user complete's the test. Note that this function will also show the result 
+  to the user.
+
+[16-Nov-2013; 7:30pm]
+
+* Code is added to populate the list of available databases in the database 
+  selection window.
+* The database selection window and main window are linked together .
+* The method planned on 5-Nov-2013; 9:40pm(3rd log entry) is UI.new_test().
+  This method is automatically called by different callbacks and does not need
+  to be explicitly called, even though it's technically a public interface.
+  
+[17-Nov-2013; 10:30pm]
+
+* A new dialog is added that asks for the length of the test to be conducted.
+  The test(s) are available in lengths of 25, 50 and 100 Questions. In case that
+  there are not sufficient questions in the database file for that test, then 
+  the available question will be used.(e.g. If the database selected has 60 
+  questions in all and the test length is selected to be 100, then only 60 
+  questions will be shown/inquired)
+
+* The UI class structure is changed and some new call backs are coded to setup 
+  stuff before the actual test begins. 
+  
+* Some minor changes of signal handlers (in specific the 'destroy_event' was
+  replaced with 'delete_event'), because it led to some bugs where the Widgets 
+  were not visible after being hidden once.
+  
+[18-Nov-2013; 10pm]
+
+* Some changes in the glade file , mostly aesthetic related.
+* Added a dialog that appears just before the test which counts to 5 seconds and
+  then the test window appears and the test begins.
+* 'application-x-executable' is selected as the icon for the program (for now)
+* Fixed an issue where one of the radio buttons in the test window were always 
+  toggled. This was resolved by creating another radio button, which recieves
+  the default toggle, but isn't shown anywhere(i.e. is not added to windown or
+  shown anywhere). This button will also help in checking whether the user
+  skipped any questions later on.
+* Code is added for randomly selecting a number of questions from the database
+  and populating a list with them.
+
+[20-Nov-2013; 7pm]
+
+* Test Window is linked to the main program's execution.
+* Now, the database selected is shown as the title of the test window
+* Added confirmation widow which is shown at the end of the test.
+* Test will mostly be controlled by button widgets of the test window. 
+* Some comments had to be modified, since they described a method (in specific
+  _new_test()) incorrectly.
+* A new dialog is planned that displays an error message about the selected 
+  database being empty.
+* Minor changes to format.txt
+* Minor changes to names of some methods
+* Minor changes to how methods were placed in main module(tochit.py)
+
+[21-Nov-2013; 9:45pm]
+
+* The 'Next' and 'Back' buttons are implemented(on test window)
+* The radio buttons on Test Window are implemented as well
+* Code to save user's answer in current_test is implemented
+
+[22-Nov-2013; 6pm]
+
+* Implemented Result Window
+* Implemented a window that shows that the currently selected database is empty
+* Added code that checks the current test and outputs result(to Result Window)
+* Moved the 'interface.glade' file from  /lib to  /data. Since a glade
+  file is not really an importable module.
+  
+[25-Nov-2013; 9pm][Version 1.0]
+
+* Added the Result Window.
+* Added Copyright notice to all sources.
+* Added full GNU GPL license in a file called LICENSE.txt.
+* Implemented Comparitive Result (introspect).
+* Implemented the random background Image.
+* Added complete info in Help->About window.
+* implemented the method that cleans up variables after the test and set's thing
+  so that another test could be run glitch free.
+* The Main Window was moved from Glade file to core program module(tochit.py)
+  because of a glitch. 
+* Lots of comments were removed, modified and updated due to recent changes
+* This is the first major release of the program and the development of 
+  Project-Tochit' is now officially suspended. The Software's new version will
+  be released on an inconsistent intrim basis, depending on when the author 
+  finds the time and inspiration to continue with development.
+
+[26-Nov-2013; 11:45pm][Version 1.01]
+
+* Added the 'next' and 'back' images to test window buttons and check result 
+  because they were causing an issue when the executable was created.
+* cx_freeze is selected for making the executable(mostly because it works)
+
+[27-Nov-2013; 3pm][Version 1.02]
+
+* Created a directory labeled 'windows' within root folder, which contains all
+  necessary files and frozen executables to run this program on a windows
+  32-bit environment
+* Added libwimp.dll (windows impersonator), A theme engine needed my MS-Windows
+  theme to /lib/gtk-2.0/2.10.0/engines/ under windows folder (that was the path
+  where the frozen executable searched for the theme engine)
+* The handler for "testlengthselection" window's delete button was not
+  set.This was Fixed.
+* Added more info to readme file along with some trouble shooting info
+
+[11-Dec-2013; 8pm][Version 1.03]
+
+* Minor Changes to GNU General Public License Declaration at the start of the 
+  source file("This Program" was replaced with "Project-Tochit'")
+* Added a text file named "Issues.txt" in docs/ folder. This will contain the 
+  currently known problems/bugs with Project-Tochit'
+* "Development_Log.txt" was renamed to "Devlog.txt"
+* Now , there exist two different versions of frozen executable , one in a 
+  folder named "win-theme" and the other in "default-theme". This done as a 
+  temporary workaround the static theme engine problem when using cxfreeze.
+  For windows xp, you can use "win-theme" and for others use "default theme"
+
+[16-Dec-2013; 8pm][Version 1.04]
+
+* Fixed a Bug where the text would become distorted when scrolled over in the 
+  test window and result window. See Issues.txt for more details
+* Made changes to Glade File(in specific, the attributes for labels(text) in
+  result window and test window were removed. These were causing the bug fixed
+  above, see Issues.txt for more info)
+* There is only one version of frozen executable now(using default theme)
+* "Devlog.txt" was erroneously named "DevLog.txt". Fixed.
+* The Month of last log entry was 11-Nov-2013 instead of 11-Dec-2013. Fixed.
+* The theme folder in /data  was removed.
+* Fixed a bug that caused the the test window to stay visible when the test
+  was exited by clicked the "x" button at the top of the window or by using
+  the exit button.
+* Updated some comments that weren't changed, while the code that they described
+  was.
+
+[19-Dec-2013; 11pm][Version 1.05]
+
+* The result window now shows a message at the bottom of the window that says
+  that you didn't attempt the question. It also has a small yellow exclaimation
+  image next to it. This change was done mostly via glade interface file and 
+  minimal code.
+
+* Added the exclaimation image to \data\icons\ .
+* Removed an Image from \data\images\ since it had a copyright over it.
+* Removed the lib folder from windows\ since cx_freeze already had a copy of it 
+  in library.zip (cx_freeze copies all imported modules to library i think)
+
+[20-Dec-2013; 7pm][Version 1.06]
+
+* Fixed a bug where an error msg would pop up showing a stack trace with the 
+  error message that "thumbs.db" was not a known image format and the program
+  would terminate at that point
+* Readme had some grammatical mistakes, Fixed.
+* A variable name (in specific, program_name) was changed to CamelCase since 
+  that's the accepted naming convention for global vairables.
+
+[24-Dec-2013; 4:30pm][Version 1.07]
+
+* The result window now instead of showing that you skipped a question, shows
+  whether you attempted it correctly, attempted it incorrectly or skipped it
+  altogether. 
+* Removed exclamination icon from data\icons\ since it was no longer needed
+
+[28-Dec-2013; 3:30pm][Version 1.08]
+
+* Added timer module(with recaliberation capabilities) to lib/ . 
+* Changed the location of parser module from lib/parser/ to lib/ .
+* Added non-sensitive radio buttons to result window, since it makes it easier
+  to tell which option belongs to which button.
+
+[12-Jan-2014; 8:30pm][Version 1.081]
+
+* Added copyright notice and copying permissions to the file timer.py
+* Added code to the UI to setup the timer and some helper code.
+* Added an internal function that converts the seconds returned by timer into
+  the format "HH:MM:SS"
+* Replaced "Copyright (C) 2013" in About window with "Copyright (C)2013-2014".
+
+[16-Jan-2014; 8:15pm][Version 1.082]
+
+* Added some code that'll later on be used by timer.
+* Updated some comments.
+
+[17-Jan-2014; 10:00pm][Version 1.083]
+
+* Added A label to test window in glade file that'll act as the timer.
+* Found and Fixed a bug that made result window go blank after the test was
+  taken again and was exited by 'x' button.
+* Added the timeout dialog.
+
+[18-Jan-2014; 12:00am][Version 1.09]
+
+* Timer is now completely functional.
+
+[18-Jan-2014; 7:00pm][Version 1.091]
+
+* Minor bug fixes with button(s) in introspection window.
+* Added code to make Timer functionality more robust.
+* Made some changes to icons(in specific, changed the icon
+  on timeout window from and .svg one to .png one)
+* 'windows' folder was renamed to "win32"
+
+[22-Jan-2014][Version 1.092]
+
+* A minor bug caused the radio buttons in test window to stay disabled after
+  a previous timeout. Fixed. 
+* Added some info about database to readme file.
+
+[22-Dec-2014][Version 1.092]
+
+*Updated Readme file, since it wasn't last updated when some changes were made.
+ One of those changes include renaming "windows" to "win32".
+
+[9-March-2015][Version 1.093]
+
+* The code now fully portable and can be run on linux and mac osx.
+  I previously used paths such as "data\\images\\001.jpg" to open
+  files, but that made the source file usable only on windows boxes.
+  To fix that, instead of using static paths to file, I used 
+  os.path.join to build paths, which are platform independent.
+  
+[24-may-2015][Version 1.093]
+
+* Fixed some bugs with text not showing up on a few windows(resultwin, 
+  confirmwin and more)
+* Fixed a typo in code.
+--------------------------------------------------------------------------------
+*NOTE: A Database file(as referred above as "Database text file") is an ordinary
+       text file that will contain multiple questions along with their options
+       and answer

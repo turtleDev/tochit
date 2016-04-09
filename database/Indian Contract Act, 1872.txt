@@ -1,0 +1,252 @@
+##db##
+
+{
+    q[The Technical World 'consensus-ad-idum'
+ means?]
+ 
+    o1[Consent]
+    o2[Free Consent]
+    o3[Consideration]
+    o4[Agreement]
+    a[1]
+}
+
+{
+    q[Consent is defined under ___ of 
+Indian Contract Act]
+    o1[Section 11]
+    o2[Section 12]
+    o3[Section 13]
+    o4[Section 14]
+    a[3]
+}
+
+{
+    q[A contract cannot arise in the absence of]
+    o1[Consent]
+    o2[Free Consent]
+    o3[Both]
+    o4[None of the Above]
+    a[1]
+}
+
+{
+    q["If two persons enter into an apparent contract 
+concerning a particular person or shit , and it 
+Turns out that each of them, misled by similarity 
+of name, had a different person or ship in his 
+mind" is there any contract existent between them]
+    o1[Yes]
+    o2[No]
+    o3[Partly Yes Partly No]
+    o4[None of the above]
+    a[2]
+}
+
+{
+    q[Consent is said to be free, when it is not 
+caused by]
+    o1[coercion]
+    o2[undue influence]
+    o3[mistake]
+    o4[All of the above]
+    a[4]
+}
+
+{
+    q[A contract is voidable when it is induced by]
+    o1[Coercion]
+    o2[Undue Influence]
+    o3[Mistake]
+    o4[Both 1st and 2nd]
+    a[4]
+}
+
+{
+    q[Coercion is defined under]
+    o1[Section 13]
+    o2[Section 15]
+    o3[Section 16]
+    o4[Section 17]
+    a[2]
+}
+
+{
+    q[A person to whom money has been paid under
+coercion must:]
+    o1[Expend it]
+    o2[Return it]
+    o3[Repay it]
+    o4[Enjoy it]
+    a[3]
+}
+
+{
+    q[The threat amounting to coercion need not 
+necessarily proceed from a party to the contract 
+statement is]
+    o1[True]
+    o2[False]
+    o3[Either 1st or second]
+    o4[None of the above]
+    a[1]
+}
+
+{
+    q[Coercion may proceed from ____ to the contract]
+    o1[Stranger]
+    o2[Party]
+    o3[Both]
+    o4[None of the above]
+    a[3]
+}
+
+{
+    q[coercion includes fear, physical compulsion and menace
+of goods, The statement is-]
+    o1[True]
+    o2[False]
+    o3[Both]
+    o4[None]
+    a[1]
+}
+
+{
+    q[Committing any act forbidden by the Indian Penal Code
+Amounts to-]
+    o1[Coercion]
+    o2[Undue Influence]
+    o3[Fraud]
+    o4[Misrepresentation]
+    a[1]
+}
+
+{
+    q[A threat to commit Suicide amounts to ____]
+    o1[Fraud]
+    o2[Undue Influence]
+    o3[Coercion]
+    o4[None of the above]
+    a[3]
+}
+
+{
+    q[Where the relations subsisting between the parties
+are such that one of the parties is in a position to 
+dominate the will of the other and uses that position
+to obtain an unfair advantage over the other. The 
+Contract is said to be induced by-]
+    o1[Coercion]
+    o2[Fraud]
+    o3[Misrepresentation]
+    o4[Undue Influence]
+    a[4]
+}
+
+{
+    q[A contract is said to be induced by undue influence-]
+    o1[Where the relations subsisting between the parties are
+such that one of the party is in a position to dominate
+the will of another]
+    o2[One party uses it's dominating position to obtain
+an unfair advante over the other]
+    o3[either 1st and 2nd]
+    o4[both 1st and 2nd]
+    a[4]
+}
+
+{
+    q[Fraud is defined under ___ of Indian Contract Act]
+    o1[Section 14]
+    o2[Section 15]
+    o3[Section 16]
+    o4[Section 17]
+    a[4]
+}
+
+{
+    q[In case of _____, there is intent to deceive 
+another party]
+    o1[Coercion]
+    o2[Fraud]
+    o3[Mistake]
+    o4[Undue Influence]
+    a[2]
+}
+
+{
+    q[A Promise made without any intention of performing
+it amounts to]
+    o1[Fraud]
+    o2[Coercion]
+    o3[Misrepresentation]
+    o4[Mistake]
+    a[1]
+}
+
+{
+    q[Where a person asserts something which is not true
+though he believes it to be true, his assertion amounts to]
+    o1[Fraud]
+    o2[Coercion]
+    o3[Misrepresentation]
+    o4[Mistake]
+    a[3]
+}
+
+{
+    q[Misrepresentation is Defined under]
+    o1[Section 14]
+    o2[Section 15]
+    o3[Section 17]
+    o4[Section 18]
+    a[4]
+}
+
+{
+    q[When both the parties to an agreement are under
+mistake, the agreement is]
+    o1[Void]
+    o2[Valid]
+    o3[Voidable]
+    o4[None of these]
+    a[1]
+}
+
+{
+    q[In case of mistake of Indian Law, the Contract is]
+    o1[Void]
+    o2[Valid]
+    o3[Voidable]
+    o4[Unenforceable]
+    a[2]
+}
+
+{
+    q[When Both parties are under mistake, the Agreement is]
+    o1[Bilateral Mistake]
+    o2[Unilateral Mistake]
+    o3[Partial Mistake]
+    o4[Incomplete Mistake]
+    a[1]
+}
+
+{
+    q[When one party to an agreement is under mistake
+                it is called]
+    o1[Bilateral Mistake]
+    o2[Partial Mistake]
+    o3[Unilateral Mistake]
+    o4[Incomplete Mistake]
+    a[3]
+}
+
+{
+    q[When the consent to an agreement is obtained by
+coercion,the agreement is voidable at the option of]
+    o1[Either party to the agreement]
+    o2[A party whose consent was so Obtained]
+    o3[A party who obtained the consent]
+    o4[None of these]
+    a[2]
+}

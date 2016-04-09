@@ -1,0 +1,22 @@
+The format for adding data in Database text file is:
+
+--------------------------------------------------------------------------------
+
+##db##
+
+{
+Q[_______________________________________]    	//Question
+o1[____________________________________]        //Option 1
+o2[____________________________________]        //Option 2
+o3[____________________________________]        //Option 3
+o4[____________________________________]        //Option 4
+a[xxx]							// can be 1 - 4
+}
+
+
+important note: '##db##' need to be the first charecters at the starting of 
+                the text file. the rest of the of the format can be adhoc(
+                but in the correct sequence)
+note: please do not use [ ] or { } in questions or options
+      because the parser will parse it incorrectly and behaviour will
+      be undefined.

@@ -1,0 +1,41 @@
+Known Bugs & Issues:
+--------------------------------------------------------------------------------
+#1 On Windows 7/8 the theme engine highlights menu items in white colour, and
+   text ( being white as well ) becomes invisible(well they basically blend in).
+   For the time being, the default(Raleigh) theme is used to avoid this bug. 
+
+#2 *Fixed*
+#3 *Fixed*
+
+
+
+
+Fixed 
+-------------------------------------------------------------------------------
+
+#2 When scrolling over the text in Scrolled Window (in the testwindow), the text
+   becomes distorted(Possible Fix: Redraw everytime window is scrolled.)
+
+   Solution: The problem was caused by using "<span size='x'>" property in 
+   the gtk.Label which was added to the scrolled window , i reckon this is an 
+   implementation problem or some sort of a conflict problem 
+   between gtk and pango library. It was fixed by replacing "<span size='x'>"
+   with "<span font='x'>". One thing to note is that the glade file was 
+   modified, since attributes for "<span size='x'>" were set there. The 
+   attributes were removed from all labels in test and result window, and 
+   subsequent markups were added in the main module sorce
+
+#3 When the result window is exited from the 'X' Button at the top of the 
+   window and another test is taken, The result window is blank and exiting
+   it does not show the main window again and the program keeps running but
+   no window appears.
+
+   Solution: The problem was a missing "return True" statement in the callback
+   that acted as the signal handler for that button. Since that button emitted 
+   an event and all event handlers need return to a bool signifying whether the 
+   event was handled or not, the missing statment caused the callback to return
+   a 'None' datatype to the event handling mechanism, which evaluates to 
+   'False'. What basically happens after that was, that GTk event handling 
+   mechanism would proceed to destroy the window and when the next time the 
+   result window was shown, all it's content would not be there since they had
+   been destroyed. 
